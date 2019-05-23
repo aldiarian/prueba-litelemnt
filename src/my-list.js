@@ -1,5 +1,5 @@
-import { LitElement, html , css} from 'lit-element';
-import './my-items'
+import { LitElement, html, css } from 'lit-element';
+import './my-items';
 
 class MyList extends LitElement {
 
@@ -11,11 +11,10 @@ class MyList extends LitElement {
 
     constructor() {
         super();
-        this.lista = [];
     }
 
     static get styles() {
-        return css`
+        return css `
         :host {
             display: block;
         }
@@ -27,13 +26,13 @@ class MyList extends LitElement {
             padding:0;
         }
         `;
-      }
+    }
 
     render() {
-        return html`
+            return html `
         <p>soy mylist</p>
         <ul>
-            ${this.lista.map(item => html`<my-items .item="${item}" ?encendido="${item.encendido}" ></my-items>`)}
+            ${ this.lista.map(item => html`<my-items .alumno=${item} ?encendido=${item.activado}></my-items> asdl`)}
         </ul>
         `;
     }
