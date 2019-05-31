@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import './my-list'
+import './my-list';
+import { templateBody } from './templates/templateBody';
 
 class MyApp extends LitElement {
 
@@ -42,8 +43,14 @@ class MyApp extends LitElement {
 
     render() {
         return html `
-            <p>hola desde my app</p>
-            <my-list .lista="${this.lista}" @click-changed="${this._changeClick}"></my-list>  
+        ${this.templateHeader}
+        ${this.templateHeader}
+        ${this.templateHeader}
+        <my-list .lista="${this.lista}" @click-changed="${this._changeClick}"></my-list> 
+        <slot name="footer"></slot>
+        <slot name="titular"></slot>
+        <slot name="texto"></slot>
+        ${this.templateBody}
         `;
     }
 
@@ -60,6 +67,15 @@ class MyApp extends LitElement {
         });
         console.log(this.lista)
 
+    }
+
+    get templateHeader(){
+        templateBody();
+    }
+    get templateBody(){
+        return html `
+            <p>soy template Body </p>
+        `
     }
 
 }

@@ -29,12 +29,26 @@ class MyList extends LitElement {
     }
 
     render() {
-            return html `
-        <p>soy mylist</p>
-        <ul>
-            ${ this.lista.map(item => html`<my-items .alumno=${item} ?encendido=${item.activado}></my-items> asdl`)}
-        </ul>
+        return html `
+            <ul>
+                ${ this.lista.map(item => html`<my-items .alumno=${item} ?encendido=${item.activado}></my-items>`)}
+            </ul>
         `;
+    }
+
+    connectedCallback(){
+        super.connectedCallback();
+        document.addEventListener( 'click' , this.doClick)
+        console.log( 'contectado ')
+    }
+    disconnectedCallback(){
+        console.log( 'descontectado ')
+        document.removeEventListener( 'click' , this.doClick)
+        super.disconnectedCallback();
+    }
+
+    doClick(){
+        console.log('cliiiiickk clicliclik')
     }
 
 

@@ -7,8 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>index</h2>
-    <my-app></my-app>
+    <h2>Lista</h2>
+    <my-app id="myApp">
+       <p id="titular" slot="titular">01 (clicable) titular LIGHT DOM</p>
+       <p slot="texto">02 podemos situar los slot donde querámos posicionandolos con el nombre</p>
+       <p slot="footer">03 footer</p>
+    </my-app>
     <script type="module" src="./src/my-app.js"></script>
+    <script>
+    document.getElementById('titular').addEventListener( 'click', ()=>{
+        console.log( 'click en titlar')
+    })
+    </script>
 </body>
 </html>
